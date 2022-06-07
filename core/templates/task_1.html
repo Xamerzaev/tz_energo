@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,6 @@
     {% block content %}
     <form action="" method="POST" enctype="multipart/form-data" class="form" novalidate>
        {{ form.hidden_tag() }}
-       <section class="contact_section layout_padding">
-        <div class="container ">
-          <div class="heading_container">
             <h2 class="">
                     Квадратное уравнение
                   </h2>
@@ -20,10 +17,7 @@
                 <p>Пожалуйста, заполните данные для решения уравнения </p>
               </div>
               <div class="container">
-                <div class="row">
-                  <div class="col-md-6">
-              <div>
-           {% if form.a.errors %}
+            {% if form.a.errors %}
                    {{ form.a(class="form-control form-control-lg is-invalid", placeholder='Введите число') }}
                    <div class="invalid-feedback">
                      {% for error in form.a.errors %}
@@ -55,13 +49,13 @@
                      {% endfor %}
                    </div>
                    {% else %}
-                   {{ form.c(class="form-control form-control-lg", placeholder='Введите переменную (c)) }}
+                   {{ form.c(class="form-control form-control-lg is-invalid", placeholder='Введите переменную (c)') }}
                    {% endif %}
-         {{ form.submit(class='registerbtn',placeholder='начать') }}
+         {{ form.submit() }}
          </div>
-        </div>
-      </div>
-    </div>
     {% endblock %}
+<br>
+<br>
+<a href="{{url_for('task_2') }}">Перейти ко 2 заданию</a>
 </body>
 </html>
