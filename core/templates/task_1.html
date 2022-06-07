@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK_1</title>
+</head>
+<body>
+    {% block content %}
+    <form action="" method="POST" enctype="multipart/form-data" class="form" novalidate>
+       {{ form.hidden_tag() }}
+       <section class="contact_section layout_padding">
+        <div class="container ">
+          <div class="heading_container">
+            <h2 class="">
+                    Квадратное уравнение
+                  </h2>
+                </div>
+                <p>Пожалуйста, заполните данные для решения уравнения </p>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+              <div>
+           {% if form.a.errors %}
+                   {{ form.a(class="form-control form-control-lg is-invalid", placeholder='Введите число') }}
+                   <div class="invalid-feedback">
+                     {% for error in form.a.errors %}
+                     <span>{{ error }}</span>
+                     {% endfor %}
+                   </div>
+                   {% else %}
+                   {{ form.a(class="form-control form-control-lg", placeholder='Введите переменную (а)') }}
+                   {% endif %}
+           
+       
+           {% if form.b.errors %}
+                   {{ form.b(class="form-control form-control-lg is-invalid", placeholder='Введите число') }}
+                   <div class="invalid-feedback">
+                     {% for error in form.b.errors %}
+                     <span>{{ error }}</span>
+                     {% endfor %}
+                   </div>
+                   {% else %}
+                   {{ form.b(class="form-control form-control-lg", placeholder='Введите переменную (b)') }}
+                   {% endif %}
+           
+       
+           {% if form.c.errors %}
+                   {{ form.c(class="form-control form-control-lg is-invalid", placeholder='Введите число') }}
+                   <div class="invalid-feedback">
+                     {% for error in form.c.errors %}
+                     <span>{{ error }}</span>
+                     {% endfor %}
+                   </div>
+                   {% else %}
+                   {{ form.c(class="form-control form-control-lg", placeholder='Введите переменную (c)) }}
+                   {% endif %}
+         {{ form.submit(class='registerbtn',placeholder='начать') }}
+         </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
